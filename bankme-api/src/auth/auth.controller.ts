@@ -7,9 +7,7 @@ export class AuthController {
 
   @Post()
   async login(@Body() body: { login: string; password: string }) {
-    if (!body.login || !body.password) {
-      throw new UnauthorizedException('Credenciais são obrigatórias');
-    }
-    return this.authService.login(body.login, body.password);
+    const { login, password } = body;
+    return this.authService.login(login, password);
   }
 }
