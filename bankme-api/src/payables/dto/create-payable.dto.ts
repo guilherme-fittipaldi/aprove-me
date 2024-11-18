@@ -1,9 +1,4 @@
-import {
-  IsUUID,
-  IsNotEmpty,
-  IsNumber,
-  IsDateString,
-} from 'class-validator';
+import { IsUUID, IsNotEmpty, IsNumber, IsDateString } from 'class-validator';
 
 export class CreatePayableDto {
   @IsUUID()
@@ -16,9 +11,9 @@ export class CreatePayableDto {
 
   @IsDateString()
   @IsNotEmpty()
-  emissionDate: string;
+  emissionDate: Date;
 
   @IsUUID()
   @IsNotEmpty()
-  assignor: string;
+  assignorId: string;
 }
