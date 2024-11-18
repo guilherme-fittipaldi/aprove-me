@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: nestjs-api
+    ports:
+      - "3000:3000"  # Mapeia a porta 3000 do container para a porta 3000 local
+    environment:
+      - NODE_ENV=production
+      - JWT_SECRET=aprovame_secret
+    depends_on:
+      - db
+    networks:
+      - nestjs-network
+    restart: always
+
+  db:
+    image: sqlite3:latest
+    container_name: sqlite-db
+    volumes:
+      - ./data:/data  # Persistência de dados
+    networks:
+      - nestjs-network
+    restart: always
+
+networks:
+  nestjs-network:
+    driver: bridge
