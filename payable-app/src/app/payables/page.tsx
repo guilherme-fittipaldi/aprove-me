@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Box, Typography, List, ListItem, ListItemText } from "@mui/material";
 import api from "@/services/api";
+import Link from "next/link";
 
 interface Payable {
   id: string;
@@ -23,6 +24,7 @@ export default function PayableList() {
       <Typography variant="h4" mb={2}>
         Pagáveis
       </Typography>
+      <Link href="/">Home</Link>
       <List>
         {payables.map((payable) => (
           <ListItem key={payable.id}>
@@ -35,6 +37,7 @@ export default function PayableList() {
           </ListItem>
         ))}
       </List>
+      <Link href="payables/create">Novo pagável</Link>
     </Box>
   );
 }

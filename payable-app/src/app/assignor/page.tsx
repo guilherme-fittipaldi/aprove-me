@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Box, Typography, List, ListItem, ListItemText } from "@mui/material";
 import api from "@/services/api";
+import Link from "next/link";
 
 interface Assignor {
   id: string;
@@ -22,6 +23,8 @@ export default function AssignorList() {
       <Typography variant="h4" mb={2}>
         Cedentes
       </Typography>
+      <Link href="/">Home</Link>
+
       <List>
         {assignors.map((assignor) => (
           <ListItem key={assignor.id}>
@@ -32,6 +35,7 @@ export default function AssignorList() {
           </ListItem>
         ))}
       </List>
+      <Link href="assignor/create">Novo cedente</Link>
     </Box>
   );
 }

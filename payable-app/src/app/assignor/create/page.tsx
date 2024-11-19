@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Box, Button, TextField, Typography } from "@mui/material";
 // import api from "@/lib/api";
 import api from "@/services/api";
+import { useRouter } from "next/navigation";
 
 interface AssignorForm {
   name: string;
@@ -27,6 +28,8 @@ export default function CreateAssignor() {
       alert(`Erro ao cadastrar cedente: ${err.response?.data?.message}`);
     }
   };
+
+  const router = useRouter();
 
   return (
     <Box maxWidth="sm" mx="auto" mt={4}>
@@ -80,6 +83,12 @@ export default function CreateAssignor() {
         />
         <Button type="submit" variant="contained" color="primary">
           Cadastrar
+        </Button>
+        <Button
+          onClick={() => router.back()}
+          variant="contained"
+          color="error">
+          Cancelar
         </Button>
       </form>
     </Box>

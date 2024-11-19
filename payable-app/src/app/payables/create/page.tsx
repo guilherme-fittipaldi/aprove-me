@@ -119,6 +119,12 @@ export default function CreatePayable() {
           sx={{ mt: 2 }}>
           Cadastrar
         </Button>
+        <Button
+          onClick={() => router.back()}
+          variant="contained"
+          color="error">
+          Cancelar
+        </Button>
       </form>
     </Box>
   );
