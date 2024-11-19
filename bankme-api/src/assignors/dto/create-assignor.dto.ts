@@ -1,9 +1,9 @@
 import { IsUUID, IsNotEmpty, IsString, IsEmail, Length } from 'class-validator';
 
 export class CreateAssignorDto {
-  @IsUUID()
-  @IsNotEmpty()
-  id: string;
+  // @IsUUID()
+  // @IsNotEmpty()
+  // id: string;
 
   @IsString()
   @IsNotEmpty()

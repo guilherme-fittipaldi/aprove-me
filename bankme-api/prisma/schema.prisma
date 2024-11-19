@@ -20,7 +20,7 @@ model Payable {
 
 model Assignor {
   id       String    @id @default(uuid())
-  document String    @unique
+  document String
   email    String
   phone    String
   name     String

@@ -17,6 +17,10 @@ export class AssignorsService {
     });
   }
 
+  async findAll() {
+    return await this.prisma.assignor.findMany();
+  }
+
   async update(id: string, data: Partial<CreateAssignorDto>) {
     return this.prisma.assignor.update({ where: { id }, data });
   }

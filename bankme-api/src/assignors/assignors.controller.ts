@@ -23,9 +23,15 @@ export class AssignorsController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get(':id')
+  @Get('/one/:id')
   findOne(@Param('id') id: string) {
     return this.assignorsService.findOne(id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get()
+  findAll() {
+    return this.assignorsService.findAll();
   }
 
   @UseGuards(JwtAuthGuard)
@@ -36,6 +42,7 @@ export class AssignorsController {
   ) {
     return this.assignorsService.update(id, updateData);
   }
+
   @UseGuards(JwtAuthGuard)
   @Delete(':id')
   delete(@Param('id') id: string) {

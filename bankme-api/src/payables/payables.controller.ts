@@ -33,9 +33,14 @@ export class PayablesController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get(':id')
-  findOne(@Param('id') id: string) {
+  @Get('/one/:id')  findOne(@Param('id') id: string) {
     return this.payablesService.findOne(id);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get()
+  findAll() {
+    return this.payablesService.findAll();
   }
 
   @UseGuards(JwtAuthGuard)

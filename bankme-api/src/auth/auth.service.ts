@@ -23,4 +23,24 @@ export class AuthService {
       accessToken: this.jwtService.sign(payload),
     };
   }
+
+  generateTokens(login: string) {
+    const accessToken = this.jwtService.sign(
+      { login },
+      { secret: 'accessSecret', expiresIn: '1m' },
+    );
+    const refreshToken = this.jwtService.sign(
+      { login },
+      { secret: 'refreshSecret', expiresIn: '1d' },
+    );
+    return { accessToken, refreshToken };
+  }
+
+  verifyRefreshToken(token: string) {
+    try {
+      return this.jwtService.verify(token, { secret: 'refreshSecret' });
+    } catch {
+      return null;
+    }
+  }
 }

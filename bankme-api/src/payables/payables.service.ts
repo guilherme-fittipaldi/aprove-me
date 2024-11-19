@@ -22,6 +22,10 @@ export class PayablesService {
     });
   }
 
+  async findAll() {
+    return await this.prisma.payable.findMany({ include: { assignor: true } });
+  }
+
   async update(id: string, data: Partial<CreatePayableDto>) {
     return this.prisma.payable.update({ where: { id }, data });
   }
